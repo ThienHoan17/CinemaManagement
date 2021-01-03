@@ -39,7 +39,57 @@ namespace MoviStore.Controllers
                 return View(movies);
             }
         }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            var movie = new Movie();
+            using (var dbContext = new MovieDbContext())
+            {
+                var categories = dbContext.Categories.ToList();
+                ViewBag.Categories = categories;
+            }
+            return View(movie);
+        }
+        [HttpPost]
+        public IActionResult Create(Movie model)
+        {
+            model.ImageUrl = "/star-wars-jedi-fallen-order-danh-gia.jpg";
+            using (var dbContext = new MovieDbContext())
+            {
+                var categories = dbContext.Movies.Add(model);
+                dbContext.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Edit(int movieId)
+        {
+            Movie movie;
+            using (var dbContext = new MovieDbContext())
+            {
+                movie = dbContext.Movies.Single(x=> x.Id == movieId);
 
+                var categories = dbContext.Categories.ToList();
+                ViewBag.Categories = categories;
+            }
+            return View(movie);
+        }
+        [HttpPost]
+        public IActionResult Edit(Movie model)
+        {          
+            using (var dbContext = new MovieDbContext())
+            {
+                var movieDb = dbContext.Movies.Single(x => x.Id == model.Id);
+                movieDb.Name = model.Name;
+                movieDb.CategoryId = model.CategoryId;
+                movieDb.Director = model.Director;
+                movieDb.Ownner = model.Ownner;
+                movieDb.Year = model.Year;
+                var categories = dbContext.Movies.Update(movieDb);
+                dbContext.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
         public IActionResult Privacy()
         {
             return View();
