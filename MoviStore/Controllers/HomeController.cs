@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MoviStore.Models;
+using MoviStore.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,58 +21,23 @@ namespace MoviStore.Controllers
 
         public IActionResult Index()
         {
-            var movies = new List<Movie>
+            using (var dbContext = new MovieDbContext())
             {
-                new Movie
+                var movies = dbContext.Movies.Select(x => new MovieVm
                 {
-                    Id = 1,
-                    Director = "Peter Cameron",
-                    Name = "Star War",
-                    Year = 2020,
-                    Ownner = "Wanderos"
-                },
-                 new Movie
-                {
-                    Id = 2,
-                    Director = "Hoan",
-                    Name = "Return of Kings",
-                    Year = 2019,
-                    Ownner = "Columbia Picture"
-                },
-                  new Movie
-                {
-                    Id = 3,
-                    Director = "Tien",
-                    Name = "Fairy",
-                    Year = 2020,
-                    Ownner = "Sony Picture"
-                },
-                   new Movie
-                {
-                    Id = 4,
-                    Director = "Cameron",
-                    Name = "Superman",
-                    Year = 2020,
-                    Ownner = "DC"
-                },
-                    new Movie
-                {
-                    Id = 5,
-                    Director = "ABC",
-                    Name = "Avenger",
-                    Year = 2020,
-                    Ownner = "Marvel Studio"
-                },
-                new Movie
-                {
-                    Id = 6,
-                    Director = "Peter",
-                    Name = "Doremon",
-                    Year = 2020,
-                    Ownner = "Wanderos"
-                }
-            };
-            return View(movies);
+                    Id = x.Id,
+                    Name = x.Name,
+                    CategoryId = x.CategoryId,
+                    CategoryName = x.Category.Name,
+                    Director = x.Director,
+                    ImageUrl = x.ImageUrl,
+                    Ownner = x.Ownner,
+                    ShowDate = x.ShowDate,
+                    Year = x.Year
+
+                }).ToList();
+                return View(movies);
+            }
         }
 
         public IActionResult Privacy()

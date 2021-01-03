@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MoviStore.Models
+namespace MoviStore.ViewModel
 {
-    public class Movie
+    public class MovieVm
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -15,6 +15,6 @@ namespace MoviStore.Models
         public string ImageUrl { get; set; }
         public DateTime ShowDate { get; set; }
         public int? CategoryId { get; set; }
-        public Category Category { get; set; }
+        public string CategoryName { get; set; }
     }
 }
