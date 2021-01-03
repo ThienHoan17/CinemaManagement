@@ -1,24 +1,30 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model List<Movie>
+@model List<MovieVm>
 <div>
     <h1 class="display-4">Welcome</h1>
     <div class="container">
         <div class="row">
+            <div class="col-12">
+                <a href="Home/Create" class="btn btn-success float-right">Create</a>
+            </div>
+        </div>
+       
+        <div class="row">
             @foreach(var movie in Model) { 
             <div class="col-12 col-sm-12 col-md-4 col-lg-3">
                 <div class="card mb-2">
-                    <img class="card-img" src="~/images/star-wars-jedi-fallen-order-danh-gia.jpg" />
+                    <img class="card-img" src="~/images@(movie.ImageUrl)" />
                     <div class="card-body text-left">
-                        <h5 class="card-title"><i class="fas fa-photo-video"></i> @movie.Name</h5>
+                        <h5 class="card-title text-truncate"><i class="fas fa-photo-video"></i> @movie.Name</h5>
                         <p class="card-text">Director @movie.Director</p>
                         <p class="card-text">Producer @movie.Ownner</p>
                         <p class="card-text">Year @movie.Year</p>
-                      
+                        <p class="card-text">Category @movie.CategoryName</p>
                     </div>
                     <div class="card-footer text-center">
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="/Home/Edit?movieId=@movie.Id" class="btn btn-primary">Edit</a>
                     </div>
                 </div>
             </div>   
