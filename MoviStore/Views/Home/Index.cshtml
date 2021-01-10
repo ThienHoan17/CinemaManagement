@@ -10,6 +10,16 @@
                 <a href="Home/Create" class="btn btn-success float-right">Create</a>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12">
+                <form method="get" action="/">
+                    <div class="input-group mb-3">
+                        <input type="text" name="query" value="@ViewBag.Query" class="form-control" placeholder="Search Movie" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
        
         <div class="row">
             @foreach(var movie in Model) { 

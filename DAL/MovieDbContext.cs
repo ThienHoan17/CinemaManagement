@@ -6,6 +6,7 @@ namespace MoviStore.Models
 {
     public partial class MovieDbContext : DbContext
     {
+
         public MovieDbContext()
         {
         }

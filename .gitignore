@@ -6,3 +6,5 @@
 /MoviStore/obj
 /.vs
 /MoviStore/bin/Debug/netcoreapp3.1
+/DAL/bin/Debug/netstandard2.0
+/DAL/obj

@@ -1,0 +1,12 @@
+D:\WebProject\Service\bin\Debug\netstandard2.0\Service.deps.json
+D:\WebProject\Service\bin\Debug\netstandard2.0\Service.dll
+D:\WebProject\Service\bin\Debug\netstandard2.0\Service.pdb
+D:\WebProject\Service\bin\Debug\netstandard2.0\DAL.dll
+D:\WebProject\Service\bin\Debug\netstandard2.0\DAL.pdb
+D:\WebProject\Service\obj\Debug\netstandard2.0\Service.csprojAssemblyReference.cache
+D:\WebProject\Service\obj\Debug\netstandard2.0\Service.AssemblyInfoInputs.cache
+D:\WebProject\Service\obj\Debug\netstandard2.0\Service.AssemblyInfo.cs
+D:\WebProject\Service\obj\Debug\netstandard2.0\Service.csproj.CoreCompileInputs.cache
+D:\WebProject\Service\obj\Debug\netstandard2.0\Service.csproj.CopyComplete
+D:\WebProject\Service\obj\Debug\netstandard2.0\Service.dll
+D:\WebProject\Service\obj\Debug\netstandard2.0\Service.pdb
